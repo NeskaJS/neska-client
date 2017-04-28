@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "polished": "^1.0.4",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "styled-components": "^1.4.5"
   },
   "scripts": {
-    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
+    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
     "lint:css": "",
     "lint:js": "eslint ./src/**/*.js",
     "precommit": "lint-staged",
-    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'"
+    "start": "node scripts/start.js",
+    "styleguide": "styleguidist server",
+    "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",
@@ -51,6 +54,7 @@
     "prettier": "^1.2.2",
     "promise": "7.1.1",
     "react-dev-utils": "^0.5.2",
+    "react-styleguidist": "^5.1.8",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
