@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components';
-import { DIVIDER } from '../../constants/colors';
+import { COLORS } from 'Constants';
+
+const { DIVIDER } = COLORS;
 
 const StyledAvatar = styled.div`
   height: 3rem;

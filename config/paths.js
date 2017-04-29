@@ -1,14 +1,13 @@
-'use strict';
-
-var path = require('path');
-var fs = require('fs');
-var url = require('url');
+const path = require('path');
+const fs = require('fs');
+const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
-var appDirectory = fs.realpathSync(process.cwd());
+const appDirectory = fs.realpathSync(process.cwd());
+console.log(appDirectory, __dirname);
 function resolveApp(relativePath) {
-  return path.resolve(appDirectory, relativePath);
+  return path.resolve(__dirname, '..', relativePath);
 }
 
 // We support resolving modules according to `NODE_PATH`.
@@ -26,23 +25,22 @@ function resolveApp(relativePath) {
 // Otherwise, we risk importing Node.js core modules into an app instead of Webpack shims.
 // https://github.com/facebookincubator/create-react-app/issues/1023#issuecomment-265344421
 
-var nodePaths = (process.env.NODE_PATH || '')
+const nodePaths = (process.env.NODE_PATH || '')
   .split(process.platform === 'win32' ? ';' : ':')
   .filter(Boolean)
   .filter(folder => !path.isAbsolute(folder))
   .map(resolveApp);
 
-var envPublicUrl = process.env.PUBLIC_URL;
+const envPublicUrl = process.env.PUBLIC_URL;
 
 function ensureSlash(path, needsSlash) {
-  var hasSlash = path.endsWith('/');
+  const hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
     return path.substr(path, path.length - 1);
   } else if (!hasSlash && needsSlash) {
-    return path + '/';
-  } else {
-    return path;
+    return `${path}/`;
   }
+  return path;
 }
 
 function getPublicUrl(appPackageJson) {
@@ -56,8 +54,8 @@ function getPublicUrl(appPackageJson) {
 // We can't use a relative path in HTML because we don't want to load something
 // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
 function getServedPath(appPackageJson) {
-  var publicUrl = getPublicUrl(appPackageJson);
-  var servedUrl = envPublicUrl || (
+  const publicUrl = getPublicUrl(appPackageJson);
+  const servedUrl = envPublicUrl || (
     publicUrl ? url.parse(publicUrl).pathname : '/'
   );
   return ensureSlash(servedUrl, true);
@@ -71,10 +69,12 @@ module.exports = {
   appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  components: resolveApp('src/components'),
+  constants: resolveApp('src/constants'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
-  nodePaths: nodePaths,
+  nodePaths,
   publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json'))
+  servedPath: getServedPath(resolveApp('package.json')),
 };

@@ -1,1 +1,3 @@
-export const UNIT = '1rem';
+export default {
+  UNIT: '1rem',
+};

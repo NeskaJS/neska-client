@@ -1,6 +1,9 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
+  "globals": {
+    "atom": true
+  },
   "env": {
     "browser": true,
     "node": true,
@@ -27,5 +30,12 @@
         "peerDependencies": false
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./config/webpack.config.dev.js"
+      }
+    }
   }
 }

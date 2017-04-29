@@ -1,15 +1,17 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components';
 import { darken, lighten, modularScale } from 'polished';
-import { UNIT } from '../../constants/variables';
-import {
+import { COLORS, VARS } from 'Constants';
+
+const {
   TEXT,
   TEXT_DISABLED,
   DEFAULT,
   PRIMARY,
   ACCENT,
   WHITE,
-} from '../../constants/colors';
+} = COLORS;
+const { UNIT } = VARS;
 
 const StyledButton = styled.button`
   border: none;
