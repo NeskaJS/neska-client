@@ -1,14 +1,24 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components';
-import { darken, lighten } from 'polished';
-import { COLORS } from '../../constants/variables';
+import { darken, lighten, modularScale } from 'polished';
+import { UNIT } from '../../constants/variables';
+import {
+  TEXT,
+  TEXT_DISABLED,
+  DEFAULT,
+  PRIMARY,
+  ACCENT,
+  WHITE,
+} from '../../constants/colors';
 
 const StyledButton = styled.button`
-  outline: none;
   border: none;
-  color: #333;
-  background-color: ${COLORS.default};
-  padding: 0.5rem 2rem;
+  outline: none;
+  color: ${TEXT};
+  min-width: ${modularScale(8.8, UNIT)};
+  margin: 0 ${modularScale(0.8, UNIT)};
+  background-color: ${DEFAULT};
+  padding: ${modularScale(0.3, UNIT)} ${modularScale(1.6, UNIT)};
   transform: skewX(-5deg);
   transition: all 0.3s;
   cursor: pointer;
@@ -18,34 +28,34 @@ const StyledButton = styled.button`
   font-weight: 300;
 
   &:hover {
-    background-color: ${darken(0.05, COLORS.default)};
+    background-color: ${darken(0.05, DEFAULT)};
   }
 
   /* -- Primary Styles */
   ${props => props.primary && css`
-    color: white;
-    background-color: ${COLORS.primary};
+    color: ${WHITE};
+    background-color: ${PRIMARY};
 
     &:hover {
-      background-color: ${lighten(0.05, COLORS.primary)};
+      background-color: ${lighten(0.05, PRIMARY)};
     }
   `}
 
   /* -- Accent Styles */
   ${props => props.accent && css`
-    color: white;
-    background-color: ${COLORS.accent};
+    color: ${WHITE};
+    background-color: ${ACCENT};
 
     &:hover {
-      background-color: ${lighten(0.05, COLORS.accent)};
+      background-color: ${lighten(0.05, ACCENT)};
     }
   `}
 
   /* -- Disabled Styles */
   ${props => props.disabled && css`
     pointer-events: none;
-    color: #bdc3c7;
-    background-color: ${COLORS.default};
+    color: ${TEXT_DISABLED};
+    background-color: ${DEFAULT};
     cursor: default;
   `}
 `;
