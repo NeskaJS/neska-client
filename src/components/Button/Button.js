@@ -1,16 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { bool, string } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { darken, lighten, modularScale } from 'polished';
 import { COLORS, VARS } from 'Constants';
 
-const {
-  TEXT,
-  TEXT_DISABLED,
-  DEFAULT,
-  PRIMARY,
-  ACCENT,
-  WHITE,
-} = COLORS;
+const { TEXT, TEXT_DISABLED, DEFAULT, PRIMARY, ACCENT, WHITE } = COLORS;
 const { UNIT } = VARS;
 
 const StyledButton = styled.button`
@@ -69,10 +63,10 @@ const Button = props => (
 );
 
 Button.propTypes = {
-  accent: PropTypes.bool, // eslint-disable-line
-  disabled: PropTypes.bool, // eslint-disable-line
-  label: PropTypes.string,
-  primary: PropTypes.bool, // eslint-disable-line
+  accent: bool, // eslint-disable-line
+  disabled: bool, // eslint-disable-line
+  label: string,
+  primary: bool, // eslint-disable-line
 };
 
 export default Button;

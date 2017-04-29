@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { bool, string } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { COLORS } from 'Constants';
 
@@ -21,9 +22,9 @@ const StyledAvatar = styled.div`
 const Avatar = props => <StyledAvatar {...props} />;
 
 Avatar.propTypes = {
-  flat: PropTypes.bool,
-  image: PropTypes.string,
-  small: PropTypes.bool,
+  flat: bool,
+  image: string,
+  small: bool,
 };
 
 export default Avatar;
