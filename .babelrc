@@ -3,6 +3,7 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
+        "Containers": "./src/containers",
         "Components": "./src/components",
         "Constants": "./src/constants",
       }

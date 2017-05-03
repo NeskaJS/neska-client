@@ -22,6 +22,7 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
+  display: inline-block;
 
   &:hover {
     background-color: ${darken(0.05, DEFAULT)};
@@ -54,6 +55,11 @@ const StyledButton = styled.button`
     background-color: ${DEFAULT};
     cursor: default;
   `}
+
+  /* -- Full width */
+  ${props => props.block && css`
+    width: 100%;
+  `}
 `;
 
 const Button = props => (
@@ -64,6 +70,7 @@ const Button = props => (
 
 Button.propTypes = {
   accent: bool, // eslint-disable-line
+  block: bool, // eslint-disable-line
   disabled: bool, // eslint-disable-line
   label: string,
   primary: bool, // eslint-disable-line
