@@ -119,7 +119,8 @@
   "lint-staged": {
     "src/**/*.js": [
       "prettier --trailing-comma all --single-quote --write",
-      "eslint"
+      "eslint --fix",
+      "git add"
     ]
   }
 }
