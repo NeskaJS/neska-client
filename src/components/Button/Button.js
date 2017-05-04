@@ -15,7 +15,6 @@ const StyledButton = styled.button`
   margin: 0 ${modularScale(0.8, UNIT)};
   background-color: ${DEFAULT};
   padding: ${modularScale(0.3, UNIT)} ${modularScale(1.6, UNIT)};
-  transform: skewX(-5deg);
   transition: all 0.3s;
   cursor: pointer;
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);

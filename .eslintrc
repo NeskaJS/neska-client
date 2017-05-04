@@ -11,6 +11,7 @@
     "es6": true
   },
   "rules": {
+    "arrow-parens": ["error", "as-needed"],
     "func-names": "off",
     "global-require": "off",
     "no-use-before-define": 0,
