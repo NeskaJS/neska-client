@@ -15,13 +15,13 @@ const StyledButton = styled.button`
   margin: 0 ${modularScale(0.8, UNIT)};
   background-color: ${DEFAULT};
   padding: ${modularScale(0.3, UNIT)} ${modularScale(1.6, UNIT)};
-  transform: skewX(-5deg);
   transition: all 0.3s;
   cursor: pointer;
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
+  display: inline-block;
 
   &:hover {
     background-color: ${darken(0.05, DEFAULT)};
@@ -54,6 +54,11 @@ const StyledButton = styled.button`
     background-color: ${DEFAULT};
     cursor: default;
   `}
+
+  /* -- Full width */
+  ${props => props.block && css`
+    width: 100%;
+  `}
 `;
 
 const Button = props => (
@@ -64,6 +69,7 @@ const Button = props => (
 
 Button.propTypes = {
   accent: bool, // eslint-disable-line
+  block: bool, // eslint-disable-line
   disabled: bool, // eslint-disable-line
   label: string,
   primary: bool, // eslint-disable-line

@@ -79,6 +79,7 @@ module.exports = {
     alias: {
       Components: paths.components,
       Constants: paths.constants,
+      Containers: paths.containers,
     },
   },
 
