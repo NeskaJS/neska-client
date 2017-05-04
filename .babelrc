@@ -6,6 +6,7 @@
         "Containers": "./src/containers",
         "Components": "./src/components",
         "Constants": "./src/constants",
+        "Providers": "./src/providers",
       }
     }]
   ]

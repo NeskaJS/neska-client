@@ -77,6 +77,7 @@ module.exports = {
       Components: paths.components,
       Constants: paths.constants,
       Containers: paths.containers,
+      Providers: paths.providers,
     },
   },
 
