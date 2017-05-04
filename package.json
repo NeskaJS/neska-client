@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
+    "format": "prettier --trailing-comma all --single-quote --write 'src/**/*.js'",
     "lint:css": "stylelint \"./src/components/**/*.js\"",
     "lint:js": "eslint ./src/**/*.js",
     "precommit": "lint-staged",
@@ -118,7 +118,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "prettier --trailing-comma es5 --single-quote --write",
+      "prettier --trailing-comma all --single-quote --write",
       "eslint"
     ]
   }
