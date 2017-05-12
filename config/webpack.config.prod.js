@@ -81,6 +81,7 @@ module.exports = {
       Constants: paths.constants,
       Containers: paths.containers,
       Providers: paths.providers,
+      Services: paths.services,
     },
   },
 

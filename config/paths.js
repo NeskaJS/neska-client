@@ -5,7 +5,7 @@ const url = require('url');
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
-console.log(appDirectory, __dirname);
+
 function resolveApp(relativePath) {
   return path.resolve(__dirname, '..', relativePath);
 }
@@ -79,4 +79,5 @@ module.exports = {
   providers: resolveApp('src/providers'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  services: resolveApp('src/services'),
 };
