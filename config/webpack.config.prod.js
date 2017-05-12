@@ -141,7 +141,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract(
           'style',
           'css?importLoaders=1!postcss',
-          extractTextPluginOptions,
+          extractTextPluginOptions
         ),
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
