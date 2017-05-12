@@ -78,6 +78,8 @@ module.exports = {
   nodePaths,
   providers: resolveApp('src/providers'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
+  redirects: resolveApp('_redirects'),
+  redirectsBuild: resolveApp('build/_redirects'),
   servedPath: getServedPath(resolveApp('package.json')),
   services: resolveApp('src/services'),
 };

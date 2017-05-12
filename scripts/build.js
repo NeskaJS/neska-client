@@ -40,6 +40,7 @@ measureFileSizesBeforeBuild(paths.appBuild).then(previousFileSizes => {
 
   // Merge with the public folder
   copyPublicFolder();
+  copyRedirects();
 });
 
 // Print out errors
@@ -153,6 +154,10 @@ function build(previousFileSizes) {
 function copyPublicFolder() {
   fs.copySync(paths.appPublic, paths.appBuild, {
     dereference: true,
-    filter: file => file !== paths.appHtml
+    filter: file => file !== paths.appHtml,
   });
+}
+
+function copyRedirects() {
+  fs.copySync(paths.redirects, paths.redirectsBuild);
 }
